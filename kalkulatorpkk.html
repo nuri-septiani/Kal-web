@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta nama="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Kalkulator Sederhana</title>
+        <style>
+            body {
+                font-family: Arial,sans-serif;
+                text-align: center;
+                margin-bottom: 50px
+            }
+            .calculator {
+                width: 250px;
+                margin: auto;
+                padding: 20px;
+                border: 2px solid #925252;
+                border-radius: 10px;
+                background-color: rgb(199, 170, 175);
+            }
+            input {
+                width: 100px;
+                height: 40px;
+                font-size: 18px;
+                text-align: right;
+                margin-bottom: 10px;
+            }
+            button {
+                width: 23%;
+                height: 40px;
+                font-size: 18px;
+                margin: 2px;
+            }
+        </style>
+    </head>
+    <h2>kalkulator Sederhana</h2>
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendOperator('+')">+</button>
+        <button onclick="appendOperator('-')">-</button>
+        <button onclick="appendNumber('9')">9</button>
+        <button onclick="appendNumber('8')">8</button>
+        <button onclick="appendNumber('7')">7</button>
+        <button onclick="appendNumber('6')">6</button>
+        <button onclick="appendNumber('5')">5</button>
+        <button onclick="appendNumber('4')">4</button>
+        <button onclick="appendNumber('3')">3</button>
+        <button onclick="appendNumber('2')">2</button>
+        <button onclick="appendNumber('1')">1</button>
+        <button onclick="appendOperator('*')">*</button>
+        <button onclick="appendNumber('0')">0</button>
+        <button onclick="appendOperator('/')">/</button>
+        <button onclick="calculateResult('=')">=</button>
+    </div>
+    <script>
+        function appendNumber(number) {
+            document.getElementById("display").value += number;
+        }
+        function appendOperator(operator) {
+            document.getElementById("display").value += operator;
+        }
+        function clearDisplay(){
+            document.getElementById("display").value ="";
+        }
+        function calculateResult(){
+            try{
+                document.getElementById("display").value = eval(document.getElementById("display").value);
+            }catch (error){
+                alert("Format Salah");
+
+            }
+        }
+    </script>
+    </body>
+</html>
